@@ -85,6 +85,25 @@ node* bst::deletenode(node *root,int k)
       root=deletekey(root);
     return root;   
 }
+node* BinarySearchTree :: deletekey(node *tmp)
+{
+    if(tmp->left==NULL&&tmp->right==NULL)
+        return NULL;
+    else if(tmp->left==NULL||tmp->right==NULL)
+    {
+        if(tmp->left==NULL)
+            return tmp->right;
+        else
+            return tmp->left;
+    }
+    else
+    {
+        int k1=maxval(tmp->left);
+        // int k1=minval(tmp->right);
+        tmp->key=k1;
+        tmp->left=deletenode(tmp->left,k1);
+    }
+}
 int bst:: maxval(node *tmp)
 {
     while(tmp->right!=NULL)
