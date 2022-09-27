@@ -85,6 +85,7 @@ node* bst::deletenode(node *root,int k)
       root=deletekey(root);
     return root;   
 }
+node* bst::deletekey()
 int bst:: maxval(node *tmp)
 {
     while(tmp->right!=NULL)
